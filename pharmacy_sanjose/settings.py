@@ -60,6 +60,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'pharmacy_sanjose.urls'
 
+AUTH_USER_MODEL = 'users.User'
+
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
