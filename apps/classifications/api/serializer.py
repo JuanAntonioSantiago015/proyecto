@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 # MODELS
-from .models import UsoTerapeutico, FormaAdministracion, Clasificacion
+from apps.classifications.models import UsoTerapeutico, FormaAdministracion, Clasificacion
 
 class UsoTerapeuticoSerializer(serializers.ModelSerializer):
     class Meta:

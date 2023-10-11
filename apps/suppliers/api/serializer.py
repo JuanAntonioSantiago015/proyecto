@@ -3,7 +3,7 @@
 from rest_framework import serializers
 
 # MODELS
-from .models import Proveedor
+from apps.suppliers.models import Proveedor
 
 class ProveedorSerializer(serializers.ModelSerializer):
     class Meta:

@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 # MODELS
-from .models import HistorialTransaccion,DetalleTransaccion
+from ..models import HistorialTransaccion,DetalleTransaccion
 
 class HistorialTransaccionSerializer(serializers.ModelSerializer):
     class Meta:

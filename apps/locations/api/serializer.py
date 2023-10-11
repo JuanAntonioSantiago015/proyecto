@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 # MODELS
-from .models import Ubicacion, Seccion, HistorialInvetario
+from apps.locations.models import Ubicacion, Seccion, HistorialInvetario
 
 class UbicacionSerializer(serializers.ModelSerializer):
     class Meta:

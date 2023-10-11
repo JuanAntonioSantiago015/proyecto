@@ -2,7 +2,7 @@
 from rest_framework import serializers
 
 # MODELS
-from .models import Presentacion
+from apps.presentations.models import Presentacion
 
 class PresentacionSerializer(serializers.ModelSerializer):
     class Meta:

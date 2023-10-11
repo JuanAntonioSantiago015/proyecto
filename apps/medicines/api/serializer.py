@@ -3,7 +3,7 @@
 from rest_framework import serializers
 
 # MODELO
-from .models import Medicamento, HistorialMedicamento
+from apps.medicines.models import Medicamento, HistorialMedicamento
 
 class MedicamentoSerializer(serializers.ModelSerializer):
     class Meta:
