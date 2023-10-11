@@ -17,5 +17,5 @@ router.register(r'forma-administracion',views.FormaAdministracionViewSet,'forma-
 
 
 urlpatterns = [
-    path('api/', include(router.urls))
+    path('api-v1/', include(router.urls))
 ]

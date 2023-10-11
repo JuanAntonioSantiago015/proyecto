@@ -37,7 +37,7 @@ urlpatterns = [
     path('medicamentos/',include('apps.medicines.urls')),
     path('docs/', include_docs_urls(title='DOCUMENTACION API')),
     path('clasificacion/', include('apps.classifications.urls')),
-    path('ubicaciones/',include('apps.locations.urls')),
+    path('ubicacion/',include('apps.locations.urls')),
     path('presentacion/',include('apps.presentations.urls')),
     path('proveedor/',include('apps.suppliers.urls')),
     path('transaccion/',include('apps.transactions.urls'))
