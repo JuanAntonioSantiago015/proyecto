@@ -9,10 +9,10 @@ from rest_framework.response import Response
 
 
 # SERIALIZER
-from .api.serializer import HistorialTransaccionSerializer, DetalleTransaccionSerializer
+from apps.transactions.api.serializer import HistorialTransaccionSerializer, DetalleTransaccionSerializer
 
 # MODELS
-from .models import HistorialTransaccion, DetalleTransaccion
+from apps.transactions.models import HistorialTransaccion, DetalleTransaccion
 
 # Create your views here.
 class HistorialTransaccionViewSet(viewsets.ModelViewSet):
