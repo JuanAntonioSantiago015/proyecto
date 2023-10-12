@@ -9,3 +9,9 @@ from django.http import Http404
 from .models import Medicamento, HistorialMedicamento
 
 # Create your views here.
+def index(request):
+    template_name = 'medicines/index.html'
+    context = {
+        'title':'Medicamentos'
+    }
+    return render(request,template_name, context)
