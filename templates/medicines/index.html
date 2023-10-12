@@ -1,13 +1,128 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+        <h2>Medicamentos</h2>
+        <hr>
+    </div>
+    <div class="row">
+        <p>
+            Un medicamento es una sustancia química o un conjunto de sustancias químicas que se utilizan 
+            para prevenir, diagnosticar, tratar o aliviar los síntomas de una enfermedad o condición médica 
+            en los seres humanos.
+        </p>
+    </div>
+    <div class="row menu">
+        <div class="col">
+            <ul class="nav nav-underline">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Todos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">En Exisitencia</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Vencidos</a>
+                </li>
+               
+              </ul>
+                      
+        </div>
+        
+        
+    </div>
+    <div class="row" style="margin-top: 1rem;">
+        <div class="col">
+            <div class="d-flex justify-content-start">
+                <form class="d-flex" role="search">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </span>
+                        <input type="text" class="form-control" placeholder="search" aria-label="Username" aria-describedby="addon-wrapping">
+                      </div>
+                </form>
+                <div class="dropdown" style="margin-left: 0.5rem;">
+                    <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Clasificacion
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Uso Terapeutico</a></li>
+                      <li><a class="dropdown-item" href="#">Forma de Administracion</a></li>
+                      
+                    </ul>
+                </div>
 
+            </div> 
+        </div>
+        <div class="col">
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    </svg>
+                    Agregar Medicamento
+                </a>
 
+            </div>
+        </div>
 
+    </div>
+    <hr>
+    
+    <div class="row">
+        <div class="col-12">
+            
+            
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre del Medicamento</th>
+                    <th scope="col">Precio</th>
+                    <th>Segun Su Clasificacion</th>
+                    <th>Marca</th>
+                    <th>Fecha Vencimiento</th>
+                    <th>...</th>
+                </tr>
+                </thead>
+                <tbody >
+                   
+                 
+                  
+                </tbody>
+              </table>
+        </div>
+       
+    </div>
+    <hr>
+    <div class="menu">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+</div>
 
 {% endblock %}
 
+{% block js %}
+<script type="module" src="../../static/js/api.js"></script>
+{% endblock%}
 
-{% block js%}
-
-{%endblock%}

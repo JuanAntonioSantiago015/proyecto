@@ -17,11 +17,27 @@ class FormaAdministracionSerializer(serializers.ModelSerializer):
         model = FormaAdministracion
         fields = '__all__'
 
-class ClasificacionSerializer(serializers.ModelSerializer):
-    medicine_id = serializers.StringRelatedField()
-    therepeuticuse_id = serializers.StringRelatedField()
-    formadministration_id = serializers.StringRelatedField()
-    
+class ClasificacionSerializer(serializers.ModelSerializer):   
     class Meta:
         model = Clasificacion
         fields = '__all__'
+    
+    def to_representation(self, instance):
+        return {
+            'medicine_id':{
+                'id':instance.medicine_id.id,
+                'medicine_name':instance.medicine_id.id,
+                'description':instance.medicine_id.description
+            },
+            'therepeuticuse_id':{
+                'id':instance.therepeuticuse_id.id,
+                'type_therepeuticuse':instance.therepeuticuse_id.type_therepeuticuse,
+                'description':instance.therepeuticuse_id.description,
+                
+            },
+            'formadministration_id':{
+                'id':instance.formadministration_id.id,
+                'type_administrationform':instance.formadministration_id.type_adminstrationform,
+                'description':instance.formadministration_id.description
+            },
+        }

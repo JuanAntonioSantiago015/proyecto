@@ -19,20 +19,30 @@ class SeccionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class HistorialInvetarioSerializer(serializers.ModelSerializer):
-
-    medicine_id = serializers.StringRelatedField()
-    location_id = serializers.StringRelatedField()
-    locationsection_id = serializers.StringRelatedField()
     
     class Meta:
         model = HistorialInvetario
         fields = '__all__'
 
-'''
-def to_representation(self, instance):
-    return{
-        id:instance.id,
-        image:instance.image if instance.image !='' or instance.image !=None else '',
-    }
+    def to_representation(self, instance):
+        return {
+            'medicine_id':{
+                'id':instance.medicine_id.id,
+                'medicine_name':instance.medicine_id.medicine_name,
+                'description':instance.medicine_id.description
 
-'''
+            },
+            'location_id':{
+                'id':instance.location_id.id,
+                'type_location':instance.location_id.type_location,
+
+            },
+            'quantity_stock':instance.quantity_stock,
+            'row':instance.row,
+            'column':instance.column,
+            'sale_price':instance.sale_price,
+            'locationsection_id':{
+                'id':instance.locationsection_id.id,
+                'location_section':instance.locationsection_id.location_section
+            }
+        }

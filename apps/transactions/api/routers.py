@@ -14,9 +14,9 @@ router.register(r'detalle-transaccion', views.DetalleTransaccionViewSet, 'detall
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('api-v1/transaccion/',views.HistorialTransaccionList.as_view(),name='transaction-list'),
-    path('api-v1/transaccion/<int:pk>/',views.HistorialTransaccionDetail.as_view(),name='transaction-detail'),
-    path('api-v1/transaccion/detalle/', views.DetailTransaccionList.as_view(), name='detail-transaccion'),
-    path('api-v1/transaccion/detail/<int:pk>/',views.DetailTransaccionDetail.as_view(), name='detail-transaccionDetail'),
+    path('api/v1/transaccion/',views.HistorialTransaccionList.as_view(),name='transaction-list'),
+    path('api/v1/transaccion/<int:pk>/',views.HistorialTransaccionDetail.as_view(),name='transaction-detail'),
+    path('api/v1/transaccion/detalle/', views.DetailTransaccionList.as_view(), name='detail-transaccion'),
+    path('api/v1/transaccion/detail/<int:pk>/',views.DetailTransaccionDetail.as_view(), name='detail-transaccionDetail'),
 
 ]
