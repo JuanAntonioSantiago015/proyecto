@@ -1,0 +1,29 @@
+MEDICAMENTO = {
+    'id':None,
+    'medicine_name':None,
+    'description':None,
+    'brand':None,
+    'cost_price':None,
+    'sale_price':None,
+    'quantity_stock':None,
+    'presentatio_type':None,
+    'expiration_date':None,
+    'type_adminstrationform':None,
+    'type_therepeuticuse':None,
+    'medication_code':None,
+    'supplier':None,
+}
+
+MEDICAMENTO['id']= resul[0]
+        MEDICAMENTO['medicine_name']=resul[1]
+        MEDICAMENTO['description']=resul[2]
+        MEDICAMENTO['brand']=resul[3]
+        MEDICAMENTO['cost_price']=resul[4]
+        MEDICAMENTO['sale_price']=resul[5]
+        MEDICAMENTO['quantity_stock']=resul[6]
+        MEDICAMENTO['presentatio_type']=resul[7]
+        MEDICAMENTO['expiration_date']=resul[8]
+        MEDICAMENTO['type_adminstrationform']=resul[9]
+        MEDICAMENTO['type_therepeuticuse']=resul[10]
+        MEDICAMENTO['medication_code']=resul[11]
+        MEDICAMENTO['supplier']=resul[12]

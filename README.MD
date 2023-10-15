@@ -21,3 +21,43 @@ python -m pip install -r requirements.txt
 ```bash
 pip freeze > requirements.txt
 ```
+
+## COMANDOS EN DOCKER
+
+Iniciar docker
+```bash
+docker compose up -d
+
+```
+
+Apagar el docker
+```bash
+docker compose down
+```
+
+Mostrar informacion en consola
+```bash
+docker logs <name_container>
+```
+
+```bash
+docker logs -f <name_container>
+```
+
+Ingresar shell de un contenedor
+```bash
+docker exec -it <container_name> bash
+```
+
+Ingresar a la shell de MYSQL
+```bash
+mysql -h <host> -u <user> -p\
+```
+
+Limpiar consola
+```bash
+CTRL +L
+clear
+cls
+\! cls
+```

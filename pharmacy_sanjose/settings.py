@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',
-    'coreapi',   
+ #   'corsheaders',
+  #  'coreapi',   
     'apps.users',
     'apps.classifications',
     'apps.locations',
@@ -48,13 +48,14 @@ INSTALLED_APPS = [
     'apps.presentations',
     'apps.suppliers',
     'apps.transactions',
+    
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware",
-    'django.middleware.common.CommonMiddleware',
+  #  "corsheaders.middleware.CorsMiddleware",
+ #   'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -86,7 +87,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pharmacy_sanjose.wsgi.application'
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+ #   'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
@@ -99,6 +100,7 @@ REST_FRAMEWORK = {
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+'''
 
 DATABASES = {
     'default': {
@@ -106,6 +108,12 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+'''
+
+import pharmacy_sanjose.db as db
+
+DATABASES = db.MYSQL
 
 
 # Password validation
@@ -159,7 +167,10 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+'''
 CORS_ALLOWED_ORIGINS = [
     
 ]
+
+'''
+

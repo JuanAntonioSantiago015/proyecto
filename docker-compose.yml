@@ -3,15 +3,18 @@ version: '3.9'
 
 services:
   db:
-    image: mysql
-    restart: always
+    image: mysql    
+    restart: always   
     volumes:
+      - /tmp/app/mysqld:/var/run/mysqld
       - my-db:/var/lib/mysql
-    environment:      
+    environment:
+      - MYSQL_DATABASE=db      
       - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=db
+      - MYSQL_PASSWORD=password      
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_HOST=''
+
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
