@@ -51,7 +51,7 @@ docker exec -it <container_name> bash
 
 Ingresar a la shell de MYSQL
 ```bash
-mysql -h <host> -u <user> -p\
+mysql -h <host> -u <user> -p
 ```
 
 Limpiar consola
