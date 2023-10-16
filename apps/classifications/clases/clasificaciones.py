@@ -1,0 +1,151 @@
+import json
+
+class UsoTerapeutico:
+  contador = 0
+  def __init__(self, type_therepeuticuse, description=None):
+    UsoTerapeutico.contador += 1
+    self._id = UsoTerapeutico.contador
+    self._type_therepeuticuse = type_therepeuticuse
+    self._description = description
+  
+  @property
+  def id(self):
+    return self._id
+  
+  @property
+  def type_therepeuticuse(self):
+    return self._type_therepeuticuse
+  
+  @property
+  def description(self):
+    return self._description
+  
+  def __str__(self):
+    uso_dic = {
+        'id': self.id,
+        'type_therepeuticuse': self.type_therepeuticuse,
+        'description': self.description
+    }
+    return json.dumps(uso_dic)
+
+
+
+class FormaAdministracion:
+  contador = 0
+  def __init__(self, type_administrationform, description=None):
+    FormaAdministracion.contador += 1
+    self._id = FormaAdministracion.contador
+    self._type_administrationform = type_administrationform
+    self._description = description
+  
+  @property
+  def id(self):
+    return self._id
+
+  @property
+  def type_administrationform(self):
+    return self._type_administrationform
+
+  @property
+  def description(self):
+    return self._description
+
+  def __str__(self):
+    forma_dic = {
+        'id': self.id,
+        'type_administrationform': self.type_administrationform,
+        'description': self.description
+    }
+    return json.dumps(forma_dic)
+
+
+class Clasificacion:
+  contador = 0  
+
+  def __init__(self,
+               medicines_id,
+               type_therepeuticuse_id=None,
+               type_administrationform_id=None):
+    Clasificacion.contador += 1
+    self._id = Clasificacion.contador
+    self._clasificacion_dic = {}
+
+
+    # ---------- ID MEDICAMENTO
+    self._medicines_id = medicines_id
+
+    # -------- Forma de administracion
+
+    if type_administrationform_id is None:
+      type_administrationform_id = []
+    self._type_administrationform_id = type_administrationform_id
+
+    # ----------- FORMA DE ADMINISTRACION
+    if type_therepeuticuse_id is None:
+      type_therepeuticuse_id = []
+    self._type_therepeuticuse_id = type_therepeuticuse_id
+
+# ------ METODOS GET
+
+  @property
+  def id(self):
+    return self._id
+
+  @property
+  def medicines_id(self):
+    return self._medicines_id
+
+  @property
+  def forma_administracion(self):
+    listF = []
+    for forma in self._type_administrationform_id:
+      forma_dic = {
+          'id': forma.id,
+          'type_administrationform': forma.type_administrationform,
+          'descripción': forma.description
+      }
+      listF.append(forma_dic)
+
+    return listF
+  
+  @property
+  def diccionario(self):
+    
+    self._clasificacion_dic['id'] = self.id
+    self._clasificacion_dic['medicines'] = str(self.medicines_id)
+    self._clasificacion_dic['forma_administracion']=str(self.forma_administracion)
+    self._clasificacion_dic['uso_terapeutico']=str(self.uso_terapeutico)
+
+    return self._clasificacion_dic
+
+
+
+  @property
+  def uso_terapeutico(self):
+    listU = []
+    for uso in self._type_therepeuticuse_id:
+      use_dic = {
+          'id': uso.id,
+          'type_therepeuticuse': uso.type_therepeuticuse,
+          'description': uso.description
+      }
+      listU.append(use_dic)
+    return listU
+
+
+# ---------- METODOS
+
+  def agregar_forma_administracion(self, type_administrationform):
+    self._type_administrationform_id.append(type_administrationform)
+
+  def agregar_uso_terapeeutico(self, type_therepeuticuse):
+    self._type_therepeuticuse_id.append(type_therepeuticuse)
+
+  
+    
+
+
+
+  def __str__(self):
+    
+    return str(self.diccionario)
