@@ -2,11 +2,16 @@ import json
 
 class UsoTerapeutico:
   contador = 0
-  def __init__(self, type_therepeuticuse, description=None):
+  def __init__(self, id,type_therepeuticuse, description=None):
     UsoTerapeutico.contador += 1
-    self._id = UsoTerapeutico.contador
+    self._contador = UsoTerapeutico.contador
+    self._id = id
     self._type_therepeuticuse = type_therepeuticuse
     self._description = description
+  
+  @property
+  def contadorRegistro(self):
+    return self._contador
   
   @property
   def id(self):
@@ -32,11 +37,16 @@ class UsoTerapeutico:
 
 class FormaAdministracion:
   contador = 0
-  def __init__(self, type_administrationform, description=None):
+  def __init__(self, id,type_administrationform, description=None):
     FormaAdministracion.contador += 1
-    self._id = FormaAdministracion.contador
+    self._contador = FormaAdministracion.contador
+    self._id = id
     self._type_administrationform = type_administrationform
     self._description = description
+  
+  @property
+  def contadorRegistro(self):
+    return self._contador
   
   @property
   def id(self):
@@ -60,14 +70,13 @@ class FormaAdministracion:
 
 
 class Clasificacion:
-  contador = 0  
+  contador = 0
+    
 
-  def __init__(self,
-               medicines_id,
-               type_therepeuticuse_id=None,
-               type_administrationform_id=None):
+  def __init__(self,id,medicines_id,type_therepeuticuse_id=None,type_administrationform_id=None):
     Clasificacion.contador += 1
-    self._id = Clasificacion.contador
+    self._contador = Clasificacion.contador
+    self._id = id
     self._clasificacion_dic = {}
 
 
@@ -78,22 +87,35 @@ class Clasificacion:
 
     if type_administrationform_id is None:
       type_administrationform_id = []
+
+
     self._type_administrationform_id = type_administrationform_id
+
 
     # ----------- FORMA DE ADMINISTRACION
     if type_therepeuticuse_id is None:
       type_therepeuticuse_id = []
+
+
     self._type_therepeuticuse_id = type_therepeuticuse_id
 
+
 # ------ METODOS GET
+  
 
   @property
   def id(self):
     return self._id
+  
+  @property
+  def contadorRegistro(self):
+    return self._contador
 
   @property
   def medicines_id(self):
-    return self._medicines_id
+    return self._medicines_id.diccionario
+  
+
 
   @property
   def forma_administracion(self):
@@ -102,9 +124,10 @@ class Clasificacion:
       forma_dic = {
           'id': forma.id,
           'type_administrationform': forma.type_administrationform,
-          'descripción': forma.description
+          'description': forma.description
       }
       listF.append(forma_dic)
+      
 
     return listF
   
@@ -112,9 +135,9 @@ class Clasificacion:
   def diccionario(self):
     
     self._clasificacion_dic['id'] = self.id
-    self._clasificacion_dic['medicines'] = str(self.medicines_id)
-    self._clasificacion_dic['forma_administracion']=str(self.forma_administracion)
-    self._clasificacion_dic['uso_terapeutico']=str(self.uso_terapeutico)
+    self._clasificacion_dic['medicines'] = self.medicines_id
+    self._clasificacion_dic['forma_administracion']=self.forma_administracion
+    self._clasificacion_dic['uso_terapeutico']=self.uso_terapeutico
 
     return self._clasificacion_dic
 
@@ -130,6 +153,8 @@ class Clasificacion:
           'description': uso.description
       }
       listU.append(use_dic)
+      
+      
     return listU
 
 
@@ -141,11 +166,7 @@ class Clasificacion:
   def agregar_uso_terapeeutico(self, type_therepeuticuse):
     self._type_therepeuticuse_id.append(type_therepeuticuse)
 
-  
-    
-
-
 
   def __str__(self):
     
-    return str(self.diccionario)
+    return json.dumps(self.diccionario, indent=4)

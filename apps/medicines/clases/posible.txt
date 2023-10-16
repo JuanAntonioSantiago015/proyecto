@@ -62,3 +62,5 @@ def __init__(self, id=None, medicine_name=None,description=None,brand=None, cost
 
     def __str__(self):       
         return '{}'.format(self.datos)
+
+source "C:/Users/Choc1403/Desktop/OCTAVO SEMESTRE/Analisis/Proyecto/project/venv/Scripts/activate"
