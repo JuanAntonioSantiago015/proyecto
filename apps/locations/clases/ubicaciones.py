@@ -19,24 +19,26 @@ class Ubicacion:
         return self._id
     
     @property
-    def  type_location(self):
+    def type_location(self):
         return self._type_location
     
     @property
     def diccionario(self):
         self._ubicacion_dic['id']=self.id
         self._ubicacion_dic['type_location'] = self.type_location
+        return self._ubicacion_dic
     
     def __str__(self):
         return json.dumps(self.diccionario)
     
 class Seccion:
     contador = 0
-    def __init__(self, id,location_section):
+
+    def __init__(self, id, location_section):
         Seccion.contador +=1
         self._contador = Ubicacion.contador
         self._id = id
-        self.location_section = location_section
+        self._location_section = location_section
         self._seccion_dic = {}
     
     @property
@@ -48,13 +50,14 @@ class Seccion:
         return self._id
     
     @property
-    def  location_section(self):
-        return self.location_section
+    def location_section(self):
+        return self._location_section
     
     @property
     def diccionario(self):
-        self._Ubicacion_dic['id']=self.id
-        self._Ubicacion_dic['location_section'] = self.location_section
+        self._seccion_dic['id']=self.id
+        self._seccion_dic['location_section'] = self.location_section
+        return self._seccion_dic
     
     def __str__(self):
         return json.dumps(self.diccionario)
@@ -114,7 +117,7 @@ class HistorialInventario:
     @property
     def diccionario(self):
         self._historial_dic['id']=self.id
-        self._historial_dic['medicine_id']=self.medicine_id
+        #self._historial_dic['medicine_id']=self.medicine_id
         self._historial_dic['location_id']=self.location_id
         self._historial_dic['section_id']=self.section_id
         self._historial_dic['quantity_stock']=self.quantity_stock

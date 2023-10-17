@@ -2,9 +2,10 @@ import json
 
 class Proveedor:
     contador = 0
-    def __init__(self, first_name, last_name,company = None,telephone=None, email=None):
+    def __init__(self, id, first_name, last_name,company = None,telephone=None, email=None):
         Proveedor.contador+=1
-        self._id = Proveedor.contador
+        self._contador = Proveedor.contador
+        self._id = id
         self._first_name = first_name
         self._last_name = last_name
         self._company = company
@@ -14,12 +15,21 @@ class Proveedor:
         self._supplier_dic = {}
     
     @property
+    def contadorRegistro(self):
+        return self._contador
+    
+    @property
     def id(self):
         return self._id
     
     @property
     def full_name(self):
-        return '{} {}'.format(self._first_name, self._last_name)
+        if self._first_name is None:
+            return '{}'.format(self._last_name)
+        elif self._last_name is None:
+            return '{}'.format(self._first_name)
+        else:
+            return '{} {}'.format(self._first_name, self._last_name)
     
     @property
     def company(self):

@@ -135,7 +135,7 @@ class Clasificacion:
   def diccionario(self):
     
     self._clasificacion_dic['id'] = self.id
-    self._clasificacion_dic['medicines'] = self.medicines_id
+    #self._clasificacion_dic['medicines'] = self.medicines_id
     self._clasificacion_dic['forma_administracion']=self.forma_administracion
     self._clasificacion_dic['uso_terapeutico']=self.uso_terapeutico
 

@@ -10,7 +10,7 @@ from django.shortcuts import render
 
 
 # CONSULTA
-from .consultas.resultado_consulta import listar,existencia, vencidos
+from .consultas.resultado_consulta import listar
 
 
 # MODEL
@@ -21,6 +21,7 @@ from apps.classifications.models import Clasificacion
 # PAGINACION
 from .pagination import paginacion
 
+import json
 # Create your views here.
 def index(request):
     # OBTENER MEDICAMENTOS
@@ -38,12 +39,15 @@ def index(request):
     
     medicamento_list = listar()
 
+    print(listar())
+
+
     # CONEXTO
     context = {
         'title':'Medicamentos',
         'page_obj':page_obj,
         'medicamento_list':medicamento_list,
-        'ubicacion_list':ubicacion_list
+    #    'ubicacion_list':ubicacion_list
     }
     
     return render(request,template_name, context)
@@ -61,7 +65,7 @@ def existence(request):
     # TEMPLATE
     template_name = 'medicines/index.html' 
         
-    medicamento_existencia = existencia()
+    medicamento_existencia = 'existencia()'
     # CONEXTO
     context = {
         'title':'Medicamentos Existentes',
@@ -84,7 +88,7 @@ def defeated(request):
     # TEMPLATE
     template_name = 'medicines/index.html' 
     
-    medicamento_vencido = vencidos()
+    medicamento_vencido = 'vencidos()'
     
     # CONEXTO
     context = {

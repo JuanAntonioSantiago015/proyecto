@@ -99,6 +99,7 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nombre del Medicamento</th>
+                    <th scope="col">Presentacion</th>
                     <th scope="col">Precio</th>
                     <th>Segun Su Clasificacion</th>
                     <th>Marca</th>
@@ -110,17 +111,20 @@
                 <tbody>
                     {% for medicamento in medicamento_list%}
                     <tr>
-                        <th scope="row">{{medicamento.id}}</th>
-                        <td>{{medicamento.medicine_name}}</td>
-                        <td>Q {{medicamento.sale_price}}</td>
+                        <th scope="row">{{medicamento.medicines.id}}</th>
+                        <td>{{medicamento.medicines.medicine_name}}</td>
+                        <td>{{medicamento.historial_medicamento.presentation_id.presentation_type}}</td>
+                        <td>Q {{medicamento.historial_inventario.sale_price}}</td>
                         <td>
-                            <ul>
+                            <ul>Forma de Administracion:
+                                {% for forma in medicamento.clasificacion.forma_administracion %}
                                 <li>
-                                    Forma de Administracion : {{medicamento.type_adminstrationform}}
+                                    {{forma.type_administrationform}}
                                 </li>
-                                <li>
-                                    Uso Terapeutico: {{medicamento.type_therepeuticuse}}
-                                </li>
+                                {% endfor%}
+                            </ul>
+                            <ul>Uso Terapeutico:
+                                
                             </ul>
                         </td>
                         <td>
