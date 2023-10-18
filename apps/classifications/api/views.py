@@ -15,14 +15,13 @@ from apps.classifications.models import Clasificacion, UsoTerapeutico, FormaAdmi
 class UsoTerapeuticoViewSet(viewsets.ModelViewSet):
     queryset = UsoTerapeutico.objects.all()
     serializer_class = UsoTerapeuticoSerializer
-    permission_classes = [permissions.IsAuthenticated]
+
 
 class FormaAdministracionViewSet(viewsets.ModelViewSet):
     queryset = FormaAdministracion.objects.all()
     serializer_class = FormaAdministracionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+
 
 class ClasificacionViewSet(viewsets.ModelViewSet):
     queryset = Clasificacion.objects.all()
     serializer_class = ClasificacionSerializer
-    permission_classes = [permissions.IsAuthenticated]

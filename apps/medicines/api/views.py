@@ -20,12 +20,12 @@ from apps.medicines.models import Medicamento, HistorialMedicamento
 class MedicamentoViewSet(viewsets.ModelViewSet):    
     serializer_class = MedicamentoSerializer
     queryset = Medicamento.objects.all()
-    permission_classes = [permissions.IsAdminUser,permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAdminUser,permissions.IsAuthenticated]
 
 class HistorialMedicamentoViewSet(viewsets.ModelViewSet):
     queryset = HistorialMedicamento.objects.all()
     serializer_class = HistorialMedicamentorSerializer
-    permission_classes = [permissions.IsAdminUser,permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAdminUser,permissions.IsAuthenticated]
 
 
 # ------------------------- MEDICAMENTO -----------------------------

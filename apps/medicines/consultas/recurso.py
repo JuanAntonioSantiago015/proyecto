@@ -5,23 +5,37 @@ from apps.locations.clases.ubicaciones import Ubicacion, Seccion, HistorialInven
 from apps.suppliers.clases.proveedores import Proveedor
 from apps.presentations.clases.presentaciones import Presentacion
 
-
+import json
     
 
-def clasifications(resultado, medicina):
+def clasifications(resultado,id):
     
     listado_general = []
     listado_clasificacion = []
-    
-    return resultado
-        
-    
+    list_forma =[]
+    list_uso = []
+    id = id
+    for clasificar in resultado:
+        forma = FormaAdministracion(clasificar[1],clasificar[2],clasificar[3])
+        uso = UsoTerapeutico(clasificar[4],clasificar[5],clasificar[6])
+        list_forma.append(forma.diccionario)
+        list_uso.append(uso.diccionario)
 
-        
-        
-        
 
-        
+        diccionario = {
+            'clasificacion_id':clasificar[0],
+            'medicina_id':clasificar[7],
+            'forma_id':list_forma,
+            'uso_id':list_uso
+        }
+        listado_clasificacion.append(diccionario)
+
+    result = [elemento for elemento in listado_clasificacion if elemento['medicina_id'] == id ]
+    listado_general.append(result)
+    return listado_general
+    
+           
+
         
 
 def inventory(resultado,medicina):

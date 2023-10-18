@@ -8,6 +8,7 @@ class UsoTerapeutico:
     self._id = id
     self._type_therepeuticuse = type_therepeuticuse
     self._description = description
+    self._uso_dic = {}
   
   @property
   def contadorRegistro(self):
@@ -24,6 +25,13 @@ class UsoTerapeutico:
   @property
   def description(self):
     return self._description
+  
+  @property
+  def diccionario(self):
+    self._uso_dic['id']=self.id
+    self._uso_dic['type_therepeuticuse']=self.type_therepeuticuse
+    self._uso_dic['description']=self.description
+    return self._uso_dic
   
   def __str__(self):
     uso_dic = {
@@ -43,6 +51,7 @@ class FormaAdministracion:
     self._id = id
     self._type_administrationform = type_administrationform
     self._description = description
+    self._forma_dic = {}
   
   @property
   def contadorRegistro(self):
@@ -59,6 +68,13 @@ class FormaAdministracion:
   @property
   def description(self):
     return self._description
+  
+  @property
+  def diccionario(self):
+    self._forma_dic['id']=self.id
+    self._forma_dic['type_administrationform']=self.type_administrationform
+    self._forma_dic['description']=self.description
+    return self._forma_dic
 
   def __str__(self):
     forma_dic = {

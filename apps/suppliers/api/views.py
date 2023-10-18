@@ -17,7 +17,7 @@ from apps.suppliers.models import Proveedor
 class ProveedorViewSet(viewsets.ModelViewSet):
     queryset = Proveedor.objects.all()
     serializer_class = ProveedorSerializer
-    permission_classes = [permissions.IsAdminUser,permissions.IsAuthenticated]
+    #permission_classes = [permissions.IsAdminUser,permissions.IsAuthenticated]
 
 # GET- POST
 class ProveedorList(APIView):

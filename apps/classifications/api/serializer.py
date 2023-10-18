@@ -21,7 +21,7 @@ class ClasificacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clasificacion
         fields = '__all__'
-    
+    ''' 
     def to_representation(self, instance):
         return {
             'medicine_id':{
@@ -41,3 +41,4 @@ class ClasificacionSerializer(serializers.ModelSerializer):
                 'description':instance.formadministration_id.description
             },
         }
+        '''

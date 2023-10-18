@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <h2>Registrando un Medicamento</h2>
+    <hr>
+    <div class="col-4" style="text-align: center;border-right: 1px solid rgba(0, 0, 0, 0.5);">
+        <!-- INFORMACION DEL MEDICAMENTO-->
+        <div class="row" style="padding: 1.6rem 0;">
+            <div class="titulo">
+                <h6>Medicamento</h6>
+                <p style="font-size: small;">Un medicamento es una sustancia química o un conjunto de sustancias químicas que se utilizan 
+                    para prevenir, diagnosticar, tratar o aliviar los síntomas de una enfermedad o condición médica 
+                    en los seres humanos o animales.</p>                
+            </div>
+        </div>
+        <hr>
+        <!-- SECCION DE SEGUN SU CLASIFICACION-->
+        <div class="row">
+            <div class="clasificacion">
+                <h6>Clasificacion</h6>
+                <p style="font-size: small;">Los medicamentos se pueden clasificar de diversas maneras según diferentes criterios, 
+                    como su uso terapéutico y su forma de administración. </p>
+                    <div class="row justify-content-center">
+                        
+                        <div class="col-4">
+                            <button type="button" class="btn badge text-bg-success" data-bs-toggle="modal" data-bs-target="#addUso">Agregar Otra <br>Forma de Administración</button>
+                                <div class="modal fade" tabindex="-1" id="addUso"  aria-labelledby="addUso" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5>Agregar Forma Administra</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>FORMULARIO DSADAS</p>
+                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                        </div>
+                        <div class="col-2"></div>
+                       
+                        <div class="col-4">
+                            <button type="button" class="btn badge text-bg-success" data-bs-toggle="modal" data-bs-target="#addForma">Agregar Otro <br>Uso Terapeutico</button>
+                                <div class="modal fade" tabindex="-1" id="addForma"  aria-labelledby="addForma" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5>Agregar Uso Terapeutico</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>FORMULARIO DSADAS</p>
+                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <hr>
+        <!-- SECCION DEL PROVEEDOR -->
+        <div class="row">
+            <div class="proveedor">
+                <h6>Proveedor</h6>
+                <p style="font-size: small;">
+                    Estos proveedores pueden ser fabricantes, distribuidores, mayoristas, minoristas u otros tipos de empresas 
+                    que proporcionan productos o servicios necesarios para el funcionamiento de un negocio o para satisfacer las necesidades de los consumidores.
+                    
+                </p> 
+                <div class="row justify-content-center">
+                    <div class="col-4">
+                        <button type="button" class="btn badge text-bg-success" data-bs-toggle="modal" data-bs-target="#addProveedor">Agregar Otro <br>Proveedor</button>
+                            <div class="modal fade" tabindex="-1" id="addProveedor"  aria-labelledby="addProveedor" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5>Agregar Proveedor</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>FORMULARIO DSADAS</p>
+                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        
+        <hr>
+    </div>
+    <div class="col">
+        <form method="post">
+            {% csrf_token %}
+            <!-- FORMULARIO SOLO PARA GUARDAR INFORMACION DEL MEDICAMENTO-->
+            <div class="row">
+                <div class="formulario_medicamento">                    
+                        <div class="form-group">
+                            <label for="medicine_name" class="fw-medium">Nombre del Medicamento</label>
+                            <input type="text" id="medicine_name" name="medicine_name" class="form-control" placeholder="Escribre el nombre del medicamento">
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="fw-medium">Descripcion del Medicamento</label>
+                            <textarea name="medicine_description" id="medicine_description" class="form-control" rows="3" placeholder="Escribe la descripcion del medicamento"></textarea>
+                        </div>
+                        
+
+                    
+
+                </div>
+            </div>
+            <hr>
+            <!-- SEGUN SU CLASIFICACION-->
+            <div class="row">
+                <div class="col">
+                    <p class="fw-medium">Uso Terapeutico</p>
+                    <hr>
+                    <div class="formulario_clasificacion_uso">
+                        {% for uso in uso_terapeutico_list %}
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{uso.id}}" id="{{uso.id}}" name="opciones_uso[]">
+                                <label class="form-check-label fw-medium" for="{{uso.id}}">{{uso}}</label>
+    
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <br>
+                        
+                        
+    
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="fw-medium">Forma Administración</p>
+                    <hr>
+                    <div class="formulario_clasificacion_forma">
+                        {% for forma in forma_administracion_list %}
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{forma.id}}" id="{{forma.id}}" name="opciones_forma[]">
+                                <label class="form-check-label fw-medium" for="{{forma.id}}">{{forma}}</label>
+    
+                            </div>
+                        </div>
+                        {% endfor %}
+                        <br>
+                        
+                    </div>
+
+                </div>
+            </div>
+            <hr>
+            <!-- -->
+            <div class="row" >
+                
+                <div class="formulario_proveedor  justify-content-center">
+                    <br><br><br>
+                    <div class="form-group">
+                        <select  class="js-example-basic-single js-states form-control" id="id_label_single" name="proveedor_select">
+                            {% for proveedor in proveedor_list %}
+                            <option value="{{proveedor.id}}">{{proveedor}}</option>
+
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                </div>
+                
+            </div>
+            <br><br><br>
+
+            <hr>
+            
+        </form>
+        
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block js %}
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
+<script>
+    $(document).ready(function() {
+        $('.js-select2').select2();
+        $('.js-example-basic-single').select2();
+    
+        $('.js-example-basic-multiple').select2();
+    });
+
+</script>
+
+{% endblock %}
