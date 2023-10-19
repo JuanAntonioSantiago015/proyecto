@@ -18,9 +18,11 @@ from .models import Medicamento, HistorialMedicamento
 from apps.locations.models import HistorialInvetario, Ubicacion
 from apps.classifications.models import Clasificacion, UsoTerapeutico, FormaAdministracion
 from apps.suppliers.models import Proveedor
+from apps.presentations.models import Presentacion
 # PAGINACION
 from .pagination import paginacion
 from django.db.models import Q
+from django.http import HttpResponse
 
 import json
 
@@ -127,11 +129,22 @@ def add(request):
     uso_terapeutico_list =UsoTerapeutico.objects.all()
     forma_administracion_list = FormaAdministracion.objects.all()
     proveedor_list = Proveedor.objects.all()
+    presentacion_list = Presentacion.objects.all()
     context = {
         'uso_terapeutico_list': uso_terapeutico_list,
         'forma_administracion_list':forma_administracion_list,
-        'proveedor_list':proveedor_list
+        'proveedor_list':proveedor_list,
+        'presentacion_list':presentacion_list,
+        'title':'Registro de Medicamento'
     }
+
+    if request.method == 'GET':
+        medicina_name = request.GET.get('medicine_name')
+        opciones_uso = request.GET.getlist('opciones_uso[]')
+        opciones_forma = request.GET.getlist('opciones_forma[]')
+        presentacion = request.GET.get('tipo_presentacion')
+        proveedor = request.GET.get('proveedor_select')
+        print(proveedor)
     return render(request, 'medicines/base/form.html', context)
     
     
