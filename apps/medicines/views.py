@@ -56,8 +56,7 @@ def index(request):
 
     # TEMPLATE
     template_name = 'medicines/index.html' 
-    
-    medicamento_list = listar()
+
    
     
     contador = 0
@@ -90,12 +89,12 @@ def existence(request):
     # TEMPLATE
     template_name = 'medicines/base/medicina_filtro.html' 
         
-    medicamento_existencia = existencia()
+
     # CONEXTO
     context = {
         'title':'Medicamentos Existentes',
         'page_obj':page_obj,
-        'medicamento_list':medicamento_existencia,
+        
         'ubicacion_list':ubicacion_list,
     }
     return render(request,template_name, context)
@@ -113,13 +112,13 @@ def defeated(request):
     # TEMPLATE
     template_name = 'medicines/base/medicina_filtro.html' 
     
-    medicamento_vencido = vencidos()
+
     
     # CONEXTO
     context = {
         'title':'Medicamentos Vencidos',
         'page_obj':page_obj,
-        'medicamento_list':medicamento_vencido,
+
         'ubicacion_list':ubicacion_list,
     }
     return render(request,template_name, context)
