@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Lista de proveedores</h1>
+    <ul>
+        
+        <table class="table">
+            <thead>
+              <tr>
+                
+                <th scope="col">Nombres</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                {% for prov in proveedor %}
+                <tr>
+                
+                <td>{{ prov.first_name }} {{ prov.last_name }}</td>
+                <td><button href="{% url 'suppliers:update' prov.pk %}" type="button" class="btn btn-info">Modificar</button></td>
+                <td><button href="{% url 'suppliers:delete' prov.pk %}" type="button" class="btn btn-danger">Eliminar</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+            
+        
+    </ul>
+
+{% endblock %}

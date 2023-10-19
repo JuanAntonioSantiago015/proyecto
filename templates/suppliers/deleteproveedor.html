@@ -1,0 +1,14 @@
+<form method = "POST"> 
+    
+    <div class="contenedor">
+    
+    <h1> ¡Precaución, está a punto de eliminar este elemento y no lo podrá recuperar! </h1> 
+    
+    {% csrf_token %}
+    {{ form.as_p }}
+    
+    <div> 
+    <button> Borrar </button>  
+    <a href=" {% url 'index' %}">Volver atrás</a>  
+    </div> 
+    </div>

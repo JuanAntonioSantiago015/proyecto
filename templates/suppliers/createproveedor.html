@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST">
+    <h1>Crear proveedor</h1>
+    
+    {{ form.as_p }}
+    
+    <button type="submit">Crear</button> 
+    {% csrf_token %}
+</form>
+<a href=" {% url 'suppliers:index' %}">Volver atrás</a>  
+
+{% endblock %}
