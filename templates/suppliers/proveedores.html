@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Lista de proveedores</h1>
+    <td><a href="{% url 'suppliers:createprov' %}" type="button" class="btn btn-secondary">Modificar</a></td>
     <ul>
         
         <table class="table">
@@ -9,6 +10,11 @@
               <tr>
                 
                 <th scope="col">Nombres</th>
+                <th scope="col">Email</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+
                 
               </tr>
             </thead>
@@ -17,8 +23,10 @@
                 <tr>
                 
                 <td>{{ prov.first_name }} {{ prov.last_name }}</td>
-                <td><button href="{% url 'suppliers:update' prov.pk %}" type="button" class="btn btn-info">Modificar</button></td>
-                <td><button href="{% url 'suppliers:delete' prov.pk %}" type="button" class="btn btn-danger">Eliminar</button></td>
+                <td>{{ prov.email }}</td>
+                <td>{{ prov.telephone }}</td>
+                <td><a href="{% url 'suppliers:updateprov' prov.pk %}" type="button" class="btn btn-info">Modificar</a></td>
+                <td><a href="{% url 'suppliers:deleteprov' prov.pk %}" type="button" class="btn btn-danger">Eliminar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -24,7 +24,7 @@ class provCreateView(generic.CreateView):
     form_class = ProveedorForm
 
     def get_success_url(self):
-        return reverse('proveedor:index')
+        return reverse('suppliers:index')
     
     def get_queryset(self):
         return Proveedor.objects.all()
@@ -34,7 +34,7 @@ class provUpdateView(generic.UpdateView):
     form_class = ProveedorForm
 
     def get_success_url(self):
-        return reverse ('proveedor:index')
+        return reverse ('suppliers:index')
     
     def get_queryset(self):
         return Proveedor.objects.all()
@@ -42,7 +42,7 @@ class provUpdateView(generic.UpdateView):
 class provDeleteView(generic.DeleteView):
     template_name = '../templates/suppliers/deleteproveedor.html'
     def get_success_url(self):
-        return reverse('proveedor:index')
+        return reverse('suppliers:index')
     
     def get_queryset(self):
         return Proveedor.objects.all()
